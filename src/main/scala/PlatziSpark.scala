@@ -25,6 +25,32 @@ object PlatziSpark extends App {
 
   /*Muestra la tabla*/
   chargefileCSV.show()
+  /*
+  +---+--------------------+-----+
+  | id|              equipo|sigla|
+  +---+--------------------+-----+
+  |  1|         30. Februar|  AUT|
+  |  2|A North American ...|  MEX|
+  |  3|           Acipactli|  MEX|
+  |  4|             Acturus|  ARG|
+  |  5|         Afghanistan|  AFG|
+  |  6|            Akatonbo|  IRL|
+  |  7|            Alain IV|  SUI|
+  |  8|             Albania|  ALB|
+  |  9|              Alcaid|  POR|
+  | 10|            Alcyon-6|  FRA|
+  | 11|            Alcyon-7|  FRA|
+  | 12|           Aldebaran|  ITA|
+  | 13|        Aldebaran II|  ITA|
+  | 14|              Aletta|  IRL|
+  | 15|             Algeria|  ALG|
+  | 16|         Ali-Baba II|  SWE|
+  | 17|         Ali-Baba IV|  SUI|
+  | 18|         Ali-Baba IX|  SUI|
+  | 19|         Ali-Baba VI|  SUI|
+  | 20|             Allegro|  FRA|
+  +---+--------------------+-----+
+  only showing top 20 rows*/
 
   /*Print the schema in a tree format*/
   chargefileCSV.printSchema()
@@ -35,7 +61,7 @@ object PlatziSpark extends App {
 
   /*---------------------------------------------------------------------------------*/
 
-  /*Guarde el nombre de la tabla cuando se cargo por algo mas comprensible y corto*/ ()
+  /*Guarde el nombre de la tabla cuando se cargo por algo mas comprensible y corto*/
   val tablecountry = chargefileCSV
 
   /*Seleccionar una columna con dos renglones*/
@@ -51,6 +77,15 @@ object PlatziSpark extends App {
 
   /*Usar un filtro solo para traer los datos con ciertas caracteristicas*/
   tablecountry.filter($"id" < 5).show
+  /*
+  +---+--------------------+-----+
+  | id|              equipo|sigla|
+  +---+--------------------+-----+
+  |  1|         30. Februar|  AUT|
+  |  2|A North American ...|  MEX|
+  |  3|           Acipactli|  MEX|
+  |  4|             Acturus|  ARG|
+  +---+--------------------+-----+*/
 
 
   /*Running SQL Queries Programmatically
@@ -62,6 +97,22 @@ object PlatziSpark extends App {
   val sqlDF = spark.sql("SELECT * FROM paises WHERE sigla ='MEX'")
   sqlDF.show()
 
-  sc.stop()
+  /*
+  +----+--------------------+-----+
+  |  id|              equipo|sigla|
+  +----+--------------------+-----+
+  |   2|A North American ...|  MEX|
+  |   3|           Acipactli|  MEX|
+  | 193|           Chamukina|  MEX|
+  | 656|              Mexico|  MEX|
+  | 657|            Mexico-1|  MEX|
+  | 658|            Mexico-2|  MEX|
+  | 700|          Nausikaa 4|  MEX|
+  |1053|              Tlaloc|  MEX|
+  |1168|              Xolotl|  MEX|
+  +----+--------------------+-----+
+*/
+
+  sc.stop() // Se cierra la sesión del SparkContext
 
 }
