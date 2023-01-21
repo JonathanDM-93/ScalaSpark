@@ -24,8 +24,15 @@ object PlatziDataFrames extends App {
     .load("C:/Users/joni_/Downloads/juegos.csv") //Indicar la ruta del archivo que queremos abrir
 
   /*Ya se cargo la ruta del archivo.
-  Ahora se podemos crear la estructura que querramos que tenga el archivo
-  cuando lo leamos independientemente como venga del archivo csv*/
+  Ahora se podemos crear la estructura que querramos que tenga el archivo...
+  cuando lo leamos independientemente como venga del archivo .csv*/
+
+  /*En la siguiente página se puede ver lo relacionado a Struct type...
+  * https://spark.apache.org/docs/3.3.1/sql-ref-datatypes.html#supported-data-types
+  * StructField(name, dataType, nullable): Represents a field in a StructType.
+  * The name of a field is indicated by name.
+  * The data type of a field is indicated by dataType. nullable is used to indicate if values of these fields can have null values.*/
+
   /*CREACION DEL ESQUEMA*/
   val nameSchema = StructType(
     Array(
