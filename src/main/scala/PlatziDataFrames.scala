@@ -49,8 +49,9 @@ object PlatziDataFrames extends App {
 
   //df.show()
 
-
-  //Crear una consulta a traves de comando comunes de SQL
+  // * Register the DataFrame as a SQL temporary view *
+  //https://spark.apache.org/docs/latest/sql-getting-started.html
+  /* Crear una consulta a traves de comando comunes de SQL */
   uploadShema.createOrReplaceTempView("viewSQL")
   val sqlDF = spark.sql("SELECT anio FROM viewSQL")
   sqlDF.show()
@@ -60,6 +61,10 @@ object PlatziDataFrames extends App {
   // En resumen sobre este ejercicio es crear un esquema a traves de los types de SQL con StructType
   //Despues cargamos un archivo .csv al esquema para poder visualizarlo.
   //Por ultimo se genero un query para ver los años
+  /* Ahi que tomar en cuanta que al final para realizar el QUERY como en ela forma tradicional de SQL creamos
+  una vista temporal, pero también algo que se conoce como * Global Temporary View * que tiene sus diferencias
+  para ello nos podemos referir a la información que ofrece la sig. liga https://spark.apache.org/docs/latest/sql-getting-started.html
+   */
 
 }
 
