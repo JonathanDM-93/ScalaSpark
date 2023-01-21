@@ -64,7 +64,8 @@ object PlatziDataFrames extends App {
   /* Ahi que tomar en cuanta que al final para realizar el QUERY como en ela forma tradicional de SQL creamos
   una vista temporal, pero también algo que se conoce como * Global Temporary View * que tiene sus diferencias
   para ello nos podemos referir a la información que ofrece la sig. liga https://spark.apache.org/docs/latest/sql-getting-started.html
-   */
+   Lo malo al parecer de usar SQL sera mas costoso y tardado en términos de procesamiento y poder de computo AL PARECER ES MEJOR
+   USAR DATAFRAME NORMALES Y USAR FUNCIONES NATIVAS DE SPARK Y SON UNA GRAN CANTIDAD DE DATOS.*/
 
 }
 
